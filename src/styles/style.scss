@@ -1,3 +1,5 @@
+@use "./mixins/button-mixin" as button_mixin;
+
 * {
     margin: 0;
     padding: 0;
@@ -5,6 +7,11 @@
     color: beige;
     font-size: 24px;
     font-weight: bolder;
+    box-sizing: border-box;
+}
+
+.hidden {
+    display: none;
 }
 
 main {
@@ -12,10 +19,19 @@ main {
     justify-content: center;
     align-items: start;
     box-sizing: border-box;
-    height: 100vh;
-    width: 100vw;
+    height: 100%;
+    min-height: 100vh;
+    width: 100%;
     padding-top: 100px;
     background: linear-gradient(45deg, rgba(76,0,162,1) 0%, rgba(97,8,98,1) 50%, rgba(184,0,31,1) 100%);
+}
+
+h1 {
+    font-size: 1em;
+}
+
+h2 {
+    font-size: 0.8em;
 }
 
 .wrapper {
@@ -25,9 +41,11 @@ main {
     border-radius: 0.5em;
     padding: 0.5em;
     display: flex;
-    justify-content: center;
-    align-items: start;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
     background-color: beige;
+    gap: 0.5em;
 }
 
 .button--add {
@@ -39,4 +57,42 @@ main {
 
 .button--add:active {
     background-color: rgb(105, 31, 124);
+}
+
+.task-container {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+.task {
+    height: 100px;
+    border: 1px solid black;
+    background-color: rgba(62, 13, 108, 0.682);
+    border-radius: 0.5em;
+    padding: 0.5em 1em;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.task__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.task__buttons {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+.task__buttons--edit {
+    @include button_mixin.button(1.5em, 1.5em);
+}
+
+.task__buttons--delete {
+    @include button_mixin.button(1.5em, 1.5em);
 }
