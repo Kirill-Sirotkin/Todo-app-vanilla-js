@@ -10,14 +10,11 @@
     box-sizing: border-box;
 }
 
-.hidden {
-    display: none;
-}
-
 main {
     display: flex;
-    justify-content: center;
-    align-items: start;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
     box-sizing: border-box;
     height: 100%;
     min-height: 100vh;
@@ -28,10 +25,41 @@ main {
 
 h1 {
     font-size: 1em;
+    height: 1em;
+    overflow: hidden;
 }
 
 h2 {
     font-size: 0.8em;
+}
+
+h3 {
+    font-size: 0.7em;
+    color: rgba(245, 245, 220, 0.8);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-self: self-start;
+    gap: 2em;
+    width: 100%;
+    & * {
+        color: rgb(115, 36, 175);
+    }
+}
+
+.form__fields {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+.form__buttons {
+    align-self: self-end;
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 1em;
 }
 
 .wrapper {
@@ -67,7 +95,7 @@ h2 {
 }
 
 .task {
-    height: 100px;
+    height: 125px;
     border: 1px solid black;
     background-color: rgba(62, 13, 108, 0.682);
     border-radius: 0.5em;
@@ -95,4 +123,12 @@ h2 {
 
 .task__buttons--delete {
     @include button_mixin.button(1.5em, 1.5em);
+}
+
+.font-color-inverse {
+    color: rgb(115, 36, 175);
+}
+
+.hidden {
+    display: none;
 }

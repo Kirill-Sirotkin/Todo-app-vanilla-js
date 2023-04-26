@@ -1,22 +1,36 @@
+const taskList = document.getElementById("task-list");
+const taskAddForm = document.getElementById("task-add-form");
 const taskContainer = document.getElementById("task-container");
 
-const tasks = [
-  {
+const cancelButton = document.getElementById("cancel-button");
+cancelButton.addEventListener("click", (event) => {
+  event.preventDefault();
+  cancelAddTask();
+  console.log("CANCEL");
+});
+
+const confirmButton = document.getElementById("confirm-button");
+confirmButton.addEventListener("click", (event) => {
+  event.preventDefault();
+
+  const newTaskTitle = document.getElementById("title").value;
+  const newTaskDeadline = document.getElementById("deadline").value;
+  const newTaskStatus = document.getElementById("status").value;
+
+  tasks.push({
     id: 0,
-    title: "Task 1",
-    status: "Not started",
-  },
-  {
-    id: 1,
-    title: "Task 2",
-    status: "In progress",
-  },
-  {
-    id: 2,
-    title: "Task 3",
-    status: "Done",
-  },
-];
+    title: newTaskTitle,
+    deadline: newTaskDeadline,
+    status: newTaskStatus,
+  });
+
+  cancelAddTask();
+  refreshTaskList();
+
+  console.log("CONFIRM");
+});
+
+const tasks = [];
 
 const refreshTaskList = () => {
   console.log("Refreshing task list...");
@@ -24,6 +38,7 @@ const refreshTaskList = () => {
 
   if (tasks.length === 0) {
     taskContainer.classList.add("hidden");
+    console.log("No items in task list.");
     return;
   }
   taskContainer.classList.remove("hidden");
@@ -41,6 +56,9 @@ const refreshTaskList = () => {
     const taskStatus = document.createElement("h2");
     taskStatus.innerHTML = taskElement.status;
 
+    const taskDeadline = document.createElement("h3");
+    taskDeadline.innerHTML = "Deadline: " + taskElement.deadline.toString();
+
     const taskButtons = document.createElement("div");
     taskButtons.classList.add("task__buttons");
 
@@ -57,11 +75,31 @@ const refreshTaskList = () => {
     taskObject.appendChild(taskInfo);
     taskInfo.appendChild(taskTitle);
     taskInfo.appendChild(taskStatus);
+    taskInfo.appendChild(taskDeadline);
 
     taskObject.appendChild(taskButtons);
     taskButtons.appendChild(taskButtonsEdit);
     taskButtons.appendChild(taskButtonsDelete);
   });
+};
+
+const addTaskButton = () => {
+  toggleElement(taskList, false);
+  toggleElement(taskAddForm, true);
+};
+
+const cancelAddTask = () => {
+  toggleElement(taskAddForm, false);
+  toggleElement(taskList, true);
+};
+
+const toggleElement = (element, toggleBool) => {
+  if (!toggleBool) {
+    element.classList.add("hidden");
+    return;
+  }
+
+  element.classList.remove("hidden");
 };
 
 refreshTaskList();
