@@ -37,7 +37,7 @@
                 <h1>ADD NEW TASK</h1>
                 <div class="form__fields">
                     <label for="title">Title:</label>
-                    <input type="text" id="title" name="title" />
+                    <input placeholder="Input title here..." type="text" id="title" name="title" />
                     <label for="deadline">Deadline:</label>
                     <input type="date" id="deadline" name="deadline" />
                     <label for="status">Status:</label>
@@ -51,6 +51,28 @@
                     <input id="confirm-button" class="form__buttons--confirm" type="submit" value="CONFIRM" />
                     <button id="cancel-button" class="form__buttons--cancel">CANCEL</button>
                 </div>
+            </form>
+        </div>
+        <div id="task-edit-form" class="wrapper hidden">
+            <form class="font-color-inverse">
+                <h1>EDIT TASK</h1>
+                <div class="form__fields">
+                    <label for="title">Title:</label>
+                    <input placeholder="Input title here..." type="text" id="title-edit" name="title" />
+                    <label for="deadline">Deadline:</label>
+                    <input type="date" id="deadline-edit" name="deadline" />
+                    <label for="status">Status:</label>
+                    <select id="status-edit" name="status">
+                        <option value="Not started">Not started</option>
+                        <option value="In progress">In progress</option>
+                        <option value="Done">Done</option>
+                    </select>
+                </div>
+                <div class="form__buttons">
+                    <input id="confirm-button-edit" class="form__buttons--confirm" type="submit" value="CONFIRM" />
+                    <button id="cancel-button-edit" class="form__buttons--cancel">CANCEL</button>
+                </div>
+                <div id="id-edit" class="hidden"></div>
             </form>
         </div>
     </main>
