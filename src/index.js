@@ -2,6 +2,8 @@ const taskList = document.getElementById("task-list");
 const taskAddForm = document.getElementById("task-add-form");
 const taskEditForm = document.getElementById("task-edit-form");
 const taskContainer = document.getElementById("task-container");
+const taskListFooter = document.getElementById("task-list-footer");
+const taskCountMessage = document.getElementById("task-count-message");
 
 const cancelButton = document.getElementById("cancel-button");
 cancelButton.addEventListener("click", (event) => {
@@ -76,10 +78,19 @@ const refreshTaskList = () => {
 
   if (tasks.length === 0) {
     taskContainer.classList.add("hidden");
+    taskListFooter.classList.add("hidden");
     console.log("No items in task list.");
     return;
   }
   taskContainer.classList.remove("hidden");
+  taskListFooter.classList.remove("hidden");
+
+  if (tasks.length === 1) {
+    taskCountMessage.innerHTML = "You have 1 task";
+  } else {
+    taskCountMessage.innerHTML =
+      "You have " + tasks.length.toString() + " tasks";
+  }
 
   tasks.forEach((taskElement) => {
     const taskObject = document.createElement("div");
@@ -144,6 +155,11 @@ const refreshAddTaskForm = () => {
 const addTaskButton = () => {
   toggleElement(taskList, false);
   toggleElement(taskAddForm, true);
+};
+
+const clearTasksButton = () => {
+  tasks.splice(0, tasks.length);
+  refreshTaskList();
 };
 
 const cancelAddTask = () => {
