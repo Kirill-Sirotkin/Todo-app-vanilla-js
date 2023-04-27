@@ -146,6 +146,18 @@ const deleteTaskButton = (id) => {
   refreshTaskList();
 };
 
+const deleteTaskButtonEdit = () => {
+  const editTaskId = parseInt(document.getElementById("id-edit").innerHTML);
+  console.log("Deleting task " + editTaskId.toString());
+
+  const index = tasks.findIndex((element) => element.id === editTaskId);
+  tasks.splice(index, 1);
+  refreshTaskList();
+
+  toggleElement(taskEditForm, false);
+  toggleElement(taskList, true);
+};
+
 const refreshAddTaskForm = () => {
   document.getElementById("title").value = "";
   document.getElementById("deadline").value = "";

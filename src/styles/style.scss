@@ -60,9 +60,18 @@ form {
     display: flex;
     flex-direction: row-reverse;
     gap: 1em;
+    width: 100%;
+}
+
+.form__buttons--delete {
+    position: absolute;
+    bottom: 0.5em;
+    align-self: self-start;
+    background-color: red;
 }
 
 .wrapper {
+    position: relative;
     width: 500px;
     min-height: 50px;
     border: 2px solid black;
