@@ -2,8 +2,6 @@
 
 ## Visit the deployed page
 
-https://kirill-sirotkin.github.io/fs15_3-todo-app/
-
 Create a simple application to let users add/remove/edit tasks.
 Tasks should have: title, deadline, status
 ![task-list](task_list.png)
