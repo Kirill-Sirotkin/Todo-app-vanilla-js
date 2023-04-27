@@ -4,33 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="src/style.css">
     <title>Todo App!</title>
 </head>
 <body>
     <main>
         <div id="task-list" class="wrapper">
             <button onclick="addTaskButton()" class="button--add">ADD NEW TASK +</button>
-            <div id="task-container" class="task-container">
-                <div class="task">
-                    <div class="task__info">
-                        <h1>
-                            Task 1
-                        </h1>
-                        <h2>
-                            In progress
-                        </h2>
-                        <h3>
-                            Deadline: 2023.01.01
-                        </h3>
-                    </div>
-                    <div class="task__buttons">
-                        <button class="task__buttons--edit">✏️</button>
-                        <button class="task__buttons--delete">❌</button>
-                    </div>
-                </div>
-                <div class="task">Task 2</div>
-            </div>
+            <div id="task-container" class="task-container"></div>
             <div id="task-list-footer" class="counter-clear-wrapper">
                 <h2 id="task-count-message" class="font-color-inverse">You have 1 Task</h2>
                 <button onclick="clearTasksButton()" id="clear-tasks-button" class="button--clear">CLEAR TASKS</button>
@@ -81,6 +62,6 @@
             <button onclick="deleteTaskButtonEdit()" id="delete-button-edit" class="form__buttons--delete">DELETE</button>
         </div>
     </main>
-    <script src="index.js"></script>
+    <script src="src/index.js"></script>
 </body>
 </html>
